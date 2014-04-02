@@ -300,10 +300,6 @@ class TaggableManager(RelatedField, Field):
             if rel.through == self.through:
                 raise ValueError('You can\'t have two TaggableManagers with the'
                                  ' same through model.')
-            # Set the field to be auto created. This seems to be required for
-            # Django 1.7 (https://github.com/alex/django-taggit/issues/211).
-            # This is probably not the right way to fix this!
-            rel.through._meta.auto_created = cls
 
         # Set the field to be auto created. This seems to be required for
         # Django 1.7 (https://github.com/alex/django-taggit/issues/211).
